@@ -29,8 +29,10 @@ class BookSingleViewController: UIViewController {
         bookTitle.text = data?.title
         authorLabel.text = data?.author
         publisherLabel.text = data?.publisher
-        descriptionText.attributedText = markChars()
-        descriptionText.textAlignment = .center
+        if !(data?.description.isEmpty ?? false) {
+            descriptionText.attributedText = markChars()
+            descriptionText.textAlignment = .center
+        }
     }
     
     func markChars() -> NSMutableAttributedString {
